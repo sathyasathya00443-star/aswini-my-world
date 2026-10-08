@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aswini | My Little World</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:Poppins,sans-serif;
+  background:#080713;
+  color:#fff;
+  overflow-x:hidden;
+}
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 35%, rgba(102,75,150,.42), transparent 34%),
+    linear-gradient(135deg,#090716,#19112b 48%,#080713);
+}
+.hero:before{
+  content:"";
+  position:absolute;inset:-20px;
+  background:
+    radial-gradient(circle at 25% 30%,rgba(244,201,122,.18),transparent 18%),
+    radial-gradient(circle at 75% 65%,rgba(116,163,255,.18),transparent 20%);
+  filter:blur(18px);
+}
+.stars{position:absolute;inset:0;background-image:
+ radial-gradient(circle,rgba(255,255,255,.7) 1px,transparent 1.5px);
+ background-size:72px 72px;opacity:.25}
+.intro{
+  position:relative;z-index:2;width:min(920px,92%);
+  text-align:center;padding:32px 20px;
+}
+.mini{letter-spacing:5px;text-transform:uppercase;font-size:12px;opacity:.7}
+h1{
+  font-family:"Cormorant Garamond",serif;font-size:clamp(48px,9vw,92px);
+  margin:8px 0;color:#f8dfaa;font-weight:600;
+}
+.quote{font-family:"Cormorant Garamond",serif;font-size:clamp(20px,3vw,30px);opacity:.9}
+.art{
+  width:min(520px,90vw);height:300px;margin:22px auto 18px;position:relative;
+  filter:drop-shadow(0 20px 40px rgba(0,0,0,.5));
+}
+.glow{position:absolute;left:50%;top:48%;transform:translate(-50%,-50%);
+ width:240px;height:240px;border-radius:50%;background:rgba(220,182,111,.15);filter:blur(25px)}
+.face{position:absolute;width:92px;height:120px;border-radius:48% 48% 45% 45%;top:55px}
+.face.radha{left:30%;background:#d9a477;transform:rotate(4deg)}
+.face.krishna{right:30%;background:#36558e;transform:rotate(-4deg)}
+.hair{position:absolute;width:120px;height:145px;border-radius:50%;top:35px;background:#15101c}
+.hair.r{left:24%}.hair.k{right:24%}
+.crown{position:absolute;right:24%;top:18px;font-size:35px;color:#f3cf7b}
+.peacock{position:absolute;right:18%;top:5px;font-size:34px}
+.hand{
+ position:absolute;top:155px;width:115px;height:32px;border-radius:20px;
+ background:#d9a477;z-index:3;
+}
+.hand.left{left:34%;transform:rotate(9deg)}
+.hand.right{right:34%;background:#36558e;transform:rotate(-9deg)}
+.join{
+ position:absolute;left:50%;top:170px;transform:translateX(-50%);
+ width:58px;height:58px;border-radius:50%;z-index:4;
+ border:2px solid #f5d68f;background:rgba(245,214,143,.15);
+ box-shadow:0 0 35px rgba(245,214,143,.5);
+ display:flex;align-items:center;justify-content:center;font-size:24px;
+}
+.enter{
+ margin-top:12px;border:1px solid rgba(245,214,143,.55);
+ background:rgba(255,255,255,.06);color:#f8dfaa;padding:13px 28px;
+ border-radius:30px;cursor:pointer;font-size:15px;transition:.3s;
+}
+.enter:hover{background:rgba(245,214,143,.15);transform:translateY(-2px)}
+.hint{font-size:11px;opacity:.55;margin-top:10px}
+
+.profile{display:none;min-height:100vh;padding:80px 7%;position:relative;
+ background:
+ radial-gradient(circle at 10% 10%,rgba(137,100,192,.18),transparent 28%),
+ radial-gradient(circle at 90% 80%,rgba(68,111,178,.16),transparent 30%),#090713}
+.profile.show{display:block;animation:fade .9s ease}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.top{text-align:center;max-width:850px;margin:0 auto 55px}
+.badge{display:inline-block;border:1px solid rgba(245,214,143,.4);padding:7px 15px;border-radius:20px;font-size:11px;letter-spacing:2px;color:#f4d99a}
+.top h2{font-family:"Cormorant Garamond";font-size:clamp(42px,7vw,70px);color:#f8dfaa;margin:14px 0 5px}
+.top p{opacity:.7}
+.grid{max-width:1050px;margin:auto;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{
+ padding:27px;border-radius:24px;background:rgba(255,255,255,.055);
+ border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(10px);
+ transition:.35s;position:relative;overflow:hidden;
+}
+.card:hover{transform:translateY(-5px);border-color:rgba(245,214,143,.35)}
+.card:after{content:"";position:absolute;width:100px;height:100px;right:-35px;top:-35px;border-radius:50%;background:rgba(245,214,143,.08)}
+.icon{font-size:27px;margin-bottom:10px}
+.card h3{font-family:"Cormorant Garamond";font-size:28px;color:#f5dca0}
+.card p{margin-top:8px;line-height:1.7;color:#ddd;font-size:14px}
+.wide{grid-column:1/-1}
+.special{
+ text-align:center;margin:55px auto 25px;max-width:850px;padding:34px 20px;
+ font-family:"Cormorant Garamond";font-size:clamp(25px,4vw,38px);color:#f7dca0;
+}
+footer{text-align:center;opacity:.45;font-size:11px;letter-spacing:2px;padding:25px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.wide{grid-column:auto}.face.r{left:23%}.face.k{right:23%}.hair.r{left:17%}.hair.k{right:17%}.hand.left{left:25%}.hand.right{right:25%}}
+</style>
+</head>
+<body>
+
+<section class="hero" id="home">
+  <div class="stars"></div>
+  <div class="intro">
+    <div class="mini">A little story about me</div>
+    <h1>My Little World ✨</h1>
+    <div class="quote">“Some stories are written by dreams, some by love.”</div>
+
+    <div class="art" aria-label="Radha Krishna inspired artwork">
+      <div class="glow"></div>
+      <div class="hair r"></div><div class="hair k"></div>
+      <div class="face radha"></div><div class="face krishna"></div>
+      <div class="crown">✦</div><div class="peacock">🦚</div>
+      <div class="hand left"></div><div class="hand right"></div>
+      <div class="join">🪷</div>
+    </div>
+
+    <button class="enter" onclick="openStory()">Join the hands • Open my story</button>
+    <div class="hint">Tap to enter my little world</div>
+  </div>
+</section>
+
+<section class="profile" id="story">
+  <div class="top">
+    <span class="badge">MY SELF • ASWINI</span>
+    <h2>Hello, this is me.</h2>
+    <p>Dreaming quietly. Growing every day. Building my own story.</p>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <div class="icon">🎓</div><h3>My Education</h3>
+      <p>BSc Computer Science graduate. Now I’m continuing my journey with <b>MSc</b> and learning something new every day.</p>
+    </article>
+    <article class="card">
+      <div class="icon">💻</div><h3>My Dream</h3>
+      <p>My dream is to build my career in the <b>IT field</b>, learn more, become independent and create a life I’m proud of.</p>
+    </article>
+    <article class="card">
+      <div class="icon">🐾</div><h3>Pet Lover</h3>
+      <p>Animals have a special place in my heart. Their love feels simple, pure and real.</p>
+    </article>
+    <article class="card">
+      <div class="icon">🏡</div><h3>My Family</h3>
+      <p>My family is one of the most important parts of my life. Their happiness and support mean a lot to me.</p>
+    </article>
+    <article class="card wide">
+      <div class="icon">🌱</div><h3>My Growth</h3>
+      <p>I don’t want a perfect life. I want a better version of myself — one step, one lesson and one achievement at a time.</p>
+    </article>
+    <article class="card">
+      <div class="icon">🪷</div><h3>Radha • Krishna</h3>
+      <p>Radha waiting for Krishna — a feeling of patience, devotion and a love that keeps believing.</p>
+    </article>
+    <article class="card">
+      <div class="icon">🔱</div><h3>Shivan • Sathidevi</h3>
+      <p>A timeless feeling of love, devotion and togetherness that inspires my heart.</p>
+    </article>
+    <article class="card">
+      <div class="icon">🎵</div><h3>My Song • My Feeling</h3>
+      <p>Some feelings cannot be explained. They live quietly inside us — and sometimes a song says everything.</p>
+    </article>
+    <article class="card">
+      <div class="icon">⭐</div><h3>Thalapathy Fan</h3>
+      <p>A proud Thalapathy Vijay fan — movies, mass moments and that special fan vibe! ❤️</p>
+    </article>
+    <article class="card">
+      <div class="icon">🌙</div><h3>Vibe • My Alone</h3>
+      <p>Sometimes I enjoy my own space. Quiet moments, my thoughts, my music — just me being me.</p>
+    </article>
+  </div>
+
+  <div class="special">
+    “Dream big. Stay kind. Keep growing. Let your own story become your favourite one.”
+  </div>
+  <footer>MADE WITH ✨ FOR MY LITTLE WORLD</footer>
+</section>
+
+<script>
+function openStory(){
+  document.getElementById('story').classList.add('show');
+  setTimeout(()=>document.getElementById('story').scrollIntoView({behavior:'smooth'}),100);
+}
+</script>
+</body>
+</html>
